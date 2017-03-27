@@ -1,6 +1,10 @@
 {
   "name": "test1",
   "private": true,
+  "author": {
+    "name": "Jakub Lemiszewski",
+    "email": "lemiszewski@gmx.com"
+  },
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",
     "grunt": "^0.4.5",
