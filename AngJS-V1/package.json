@@ -1,5 +1,6 @@
 {
   "name": "test1",
+  "version": "1.0",
   "private": true,
   "author": {
     "name": "Jakub Lemiszewski",
