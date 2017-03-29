@@ -1,6 +1,7 @@
 {
   "name": "demo",
   "version": "1.0",
+  "main": "app/js/main.min.js",
   "private": true,
   "author": {
     "name": "Jakub Lemiszewski",
