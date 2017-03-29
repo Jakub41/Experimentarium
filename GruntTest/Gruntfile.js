@@ -17,25 +17,25 @@ module.exports = function (grunt) {
         cssmin: {
             combine: {
                 files: {
-                    'app/css/main.css' : ['app/css/content.css','app/css/sidebar.css']
+                    'app/css/main.min.css': ['app/css/content.css', 'app/css/sidebar.css']
                 }
             }
         },
 
         concat: {
-            options: {
-                banner: '<%= banner %>',
-                stripBanners: true
+            js: {
+                src: ['app/js/main.min.js'],
+                dest: 'build/assets/js/app.js',
             },
-            dist: {
-                src: ['lib/demo.js'],
-                dest: 'dist/demo.js'
+            css: {
+                src: ['app/css/main.min.css'],
+                dest: 'build/assets/css/style.css',
             }
         },
         uglify: {
             dist: {
                 files: {
-                    'app/js/main.min.js' : ['app/js/toggle.js']
+                    'app/js/main.min.js': ['app/js/toggle.js']
                 }
             }
         },
@@ -69,25 +69,25 @@ module.exports = function (grunt) {
             files: ['test/**/*.html']
         },
         watch: {
-            gruntfile: {
-                files: '<%= jshint.gruntfile.src %>',
-                tasks: ['jshint:gruntfile']
+            js: {
+                files: ['app/js/*.js'],
+                tasks: ['concat:js']
             },
-            lib_test: {
-                files: '<%= jshint.lib_test.src %>',
-                tasks: ['jshint:lib_test', 'qunit']
+            css: {
+                files: ['app/css/*.css'],
+                tasks: ['concat:css']
             }
         }
     });
 
     // These plugins provide necessary tasks
     grunt.loadNpmTasks('grunt-contrib-cssmin');
-    //grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-qunit');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Default task
-    grunt.registerTask('default', ['jshint', 'qunit', 'cssmin', 'uglify']);
+    grunt.registerTask('default', ['jshint', 'qunit', 'cssmin', 'uglify', 'concat', 'watch']);
 };
