@@ -1,0 +1,10 @@
+{
+  "name": "GruntProject",
+  "version": "1.0.0",
+  "description": "A project for testing Grunt",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "^1.0.1"
+  }
+}
