@@ -1,31 +1,19 @@
-(function () {
+(function(){
+    var app = angular.module("githubViewer", [])
+    var MainCtrl = function($scope, $http){
 
-    var createWorker = function () {
+        var onUserComplete = function(response){
+            $scope.user = response.data;
+        }
 
-        var workCount = 0;
+        var onError = function(reason){
+            $scope.error = "Error!!!"
+        }
 
-        var task1 = function () {
-            workCount += 1;
-            console.log("task1 " + workCount);
+        $http.get("https://api.github.com/users/robconery").then(onUserComplete, onError)
 
-        };
+        $scope.message = "Yeah!!!";
 
-        var task2 = function () {
-            workCount += 1;
-            console.log("Task2 " + workCount);
-        };
-
-        return {
-
-            job1: task1,
-            job2: task2
-
-        };
     };
-    var worker = createWorker();
-
-    worker.job1();
-    worker.job2();
-    worker.job2();
-        
-}());
+    app.controller("MainCtrl", MainCtrl)
+}())

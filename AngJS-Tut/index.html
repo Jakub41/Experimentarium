@@ -7,10 +7,15 @@
     <title>AngJS Tut</title>
     <link rel="stylesheet" href="main.css">
 </head>
-<body ng-app="">
-    <h1>AngularJS Tutorial</h1>
-    
-
+<body ng-app="githubViewer">
+    <div ng-controller="MainCtrl">
+        <h1>AngularJS Tutorial</h1>
+        <hr>
+        <h2>{{ message }}</h2>
+        <p>First name: {{ user.name }}</p>
+        <p>Location: {{ user.location }}</p>
+        <img ng-src="{{ user.avatar_url }}" title="{{ user.name }}" alt="user-avatar">
+    </div>
     <!--Scripts-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
     <script src="app.js"></script>
