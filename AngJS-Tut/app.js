@@ -12,6 +12,7 @@
 
         $http.get("https://api.github.com/users/robconery").then(onUserComplete, onError)
 
+        $scope.username = "angular";
         $scope.message = "Yeah!!!";
 
     };
