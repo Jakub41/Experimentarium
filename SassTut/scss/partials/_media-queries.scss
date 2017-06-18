@@ -1,0 +1,50 @@
+// === Media Queries Variables === 
+$tiny-screen-width: 320px;
+$small-screen-width: 480px;
+$medium-screen-width: 680px;
+$large-screen-width: 960px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+$custom-width: 960px;
+// === Media Queries Mixins ===
+@mixin tablet {
+    @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: #{$desktop-width}) {
+        @content;
+    }
+}
+
+@mixin media {
+    @media (max-width: #{$custom-width}) {
+        @content;
+    }
+}
+
+@mixin tiny-screen {
+    @media (max-width: #{$tiny-screen-width}) {
+        @content;
+    }
+}
+
+@mixin small-screen {
+    @media (max-width: #{$small-screen-width}) {
+        @content;
+    }
+}
+
+@mixin medium-screen {
+    @media (max-width: #{$small-screen-width}) {
+        @content;
+    }
+}
+
+@mixin large-screen {
+    @media (max-width: #{$small-screen-width}) {
+        @content;
+    }
+}

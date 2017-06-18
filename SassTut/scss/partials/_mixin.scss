@@ -1,0 +1,52 @@
+@mixin google-font($font) {
+    $font: unquote($font);
+    @import url(https://fonts.googleapis.com/css?family=#{$font});
+}
+
+@mixin warning {
+    background-color: $warning;
+    color: $textWarningColor;
+    &:hover {
+        background-color: lighten($warning, 10%);
+    }
+}
+
+@mixin warning-button {
+    @include warning;
+    padding: 8px 12px;
+}
+
+@mixin large-text {
+    font: {
+        size: 22px;
+        weight: bold;
+    }
+}
+
+@mixin rounded($radius) {
+    border-radius: $radius;
+}
+
+@mixin box($radius, $border) {
+    @include rounded($radius);
+    border: $border;
+}
+
+@mixin box-shadow($shadow...) {
+    box-shadow: $shadow;
+    -moz-box-shadow: $shadow;
+    -webkit-box-shadow: $shadow;
+}
+
+@mixin apply-to-ie-6 {
+    * html {
+        @content;
+    }
+}
+
+@mixin fancy-links {
+    a {
+        font-style: italic;
+        text-decoration: none;
+    }
+}

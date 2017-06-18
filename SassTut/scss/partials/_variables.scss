@@ -1,0 +1,63 @@
+// === THEME ===
+// Allowed values: Dark, Light, Default
+$theme: Light;
+// === COLORS ===
+$body-background-color: #fff;
+$textColor: #222222;
+$themeColor: #170a48;
+$secondaryColor: #f27731;
+$ternaryColor: #ccf962;
+$linkColor: $secondaryColor;
+$menu-item-color: #fff;
+$warning: #FF0000;
+$textWarningColor: #000;
+$boxBorderColor: #000;
+$headerColor: #fff;
+$body-background-color: #fff;
+// theme config
+@if $theme==Dark {
+    $body-background-color: #22222a;
+    $textColor: #fff;
+    $themeColor: #42424a;
+    $secondaryColor: #c24721;
+    $ternaryColor: #698932;
+    $linkColor: $secondaryColor;
+    $menu-item-color: #fff;
+}
+
+@else if $theme==Light {
+    $body-background-color: #fff;
+    $textColor: #000;
+    $themeColor: #372a27;
+    $secondaryColor: #d26741;
+    $ternaryColor: #b9da63;
+    $linkColor: $secondaryColor;
+    $menu-item-color: #fff;
+}
+
+@else if $theme==Default {
+    $body-background-color: #fff;
+    $textColor: #222222;
+    $themeColor: #170a48;
+    $secondaryColor: #f27731;
+    $ternaryColor: #ccf962;
+    $linkColor: $secondaryColor;
+    $menu-item-color: #fff;
+}
+
+// === FONTS ===
+$textFont: 'Alegreya Sans',
+Arial,
+sans-serif;
+$headLineFont: 'Titillium',
+Georgia,
+serif;
+// === SIZES ===
+$contentWidth: 960px;
+$headerHeight: 60px;
+$footerHeight: 90px;
+$radius: 6px;
+$border: 1px solid $boxBorderColor;
+$col: col-width($columns: 8);
+// === USABILITY ===
+$contrast: high;

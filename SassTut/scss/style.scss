@@ -1,66 +1,136 @@
-// === COLORS ===
-$textColor: #222222;
-$themeColor: #170a48;
-$secondaryColor: #f27731;
-$ternaryColor: #ccf962;
-$linkColor: $secondaryColor;
-$menu-item-color: #fff;
-
-// === FONTS ===
-$textFont: Verdana, Arial, sans-serif;
-$headLineFont: 'Palatino Linotype', Georgia, serif;
-
-// === SIZES ===
-$contentWidth: 960px;
-$headerHeight: 60px;
-$footerHeight: 90px;
-
-body {
-  font-family: $textFont;
-  color: $textColor;
+//=== Imports ===
+@import "partials/functions";
+@import "partials/variables";
+@import "partials/mixin";
+@import "partials/font";
+@import "partials/media-queries";
+// === Includes ===
+@include fancy-links;
+@include apply-to-ie-6 {
+    body {
+        font-size: 125%;
+    }
 }
 
-h1, h2, h3, h4 {
-  font-family: $headLineFont;
+// === Style From Here ===
+.error {
+    color: $warning;
+}
+
+.critical-error {
+    @extend .error;
+    bottom: 1px solid $warning;
+    font-weight: bold;
+}
+
+body {
+    font-family: $textFont;
+    font-size: em(18px);
+    background-color: $body-background-color;
+    color: $textColor;
+    @include large-screen {
+        font-size: 125%;
+    }
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: $headLineFont;
+}
+
+h2 {
+    @include large-text;
 }
 
 p {
-  font-family: $textFont;
+    font-family: $textFont;
 }
 
 a {
-  color: $linkColor;
+    color: $linkColor;
+    &:hover {
+        color: darken($linkColor, 15%);
+    }
+}
+
+%highlight {
+    font-style: italic;
+}
+
+.sub-title {
+    @extend %highlight;
+    font-size: em(20px);
+}
+
+.warning-button {
+    @include warning-button;
+}
+
+.cta-button {
+    @extend .warning-button;
+    @extend .error;
+    @include rounded($radius);
+    font-weight: bold;
+}
+
+.super-cta-button {
+    @extend .cta-button;
+    font-size: em(20px);
 }
 
 #header {
-  height: $headerHeight;
-  background-color: $themeColor;
-  #main-menu {
-    li {
-      display: inline;
+    @include box($radius: 12px, $border: 1px solid $headerColor);
+    @include box-shadow(2px 0px 4px #999, 1px 1px 6px $secondaryColor);
+    height: $headerHeight;
+    background-color: $themeColor;
+    #main-menu {
+        li {
+            display: inline;
+        }
+        a {
+            color: $menu-item-color;
+            padding: 6px 8px;
+            border-bottom: 1px solid transparentize(#fefefe, 1);
+            transition: border-bottom 1s;
+            transition-timing-function: ease-in-out;
+            &:hover {
+                border-bottom: 1px solid opacify(#fefefe, .5);
+            }
+        }
     }
-    a {
-      color: $menu-item-color;
-    }
-  }
-  
-  #logo {
-
-  }
+    #logo {}
 }
 
 #main {
-  width: $contentWidth;
-  margin-left: auto;
-  margin-right: auto;
-  #content {
-  }
-
-  #sidebar {
-  }
+    width: $contentWidth;
+    @include large-screen {
+        width: auto;
+        max-width: $contentWidth;
+    }
+    margin-left: auto;
+    margin-right: auto;
+    #content {
+        float: left;
+        width: 6 * $col;
+    }
+    #sidebar {
+        float: right;
+        width: 2 * $col;
+        li {
+            list-style-type: none;
+            padding: em(16px) em(20px);
+            border-bottom: 1px dashed #999;
+            &:hover {
+                background-color: lighten($secondaryColor, 15%);
+            }
+        }
+    }
 }
 
 #footer {
-  height: $footerHeight;
-  background-color: $ternaryColor;
+    clear: both;
+    height: $footerHeight;
+    background-color: $ternaryColor;
 }
