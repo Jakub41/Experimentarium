@@ -444,21 +444,129 @@ textarea {
   /* 2 */
 }
 
-/* line 4, ../scss/main.scss */
+/* line 21, ../../../../../../../usr/local/lib/ruby/gems/2.4.0/gems/susy-2.2.12/sass/susy/language/susy/_box-sizing.scss */
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 7, ../scss/main.scss */
+a {
+  color: #330000;
+}
+/* line 9, ../scss/main.scss */
+a:hover {
+  color: maroon;
+}
+
+/* line 14, ../scss/main.scss */
 .container {
   height: 100vh;
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
-  background-image: linear-gradient(to right, rgba(102, 102, 255, 0.25), rgba(179, 179, 255, 0.25) 80%, transparent 80%);
-  background-size: 6.32911%;
-  background-origin: content-box;
-  background-clip: content-box;
-  background-position: left top;
 }
 /* line 12, ../../../../../../../usr/local/lib/ruby/gems/2.4.0/gems/susy-2.2.12/sass/susy/output/support/_clearfix.scss */
 .container:after {
   content: " ";
   display: block;
+  clear: both;
+}
+
+/* line 19, ../scss/main.scss */
+.sidebar-left {
+  height: 80vh;
+  background-color: rgba(0, 100, 100, 0.6);
+  display: none;
+}
+@media (min-width: 720px) {
+  /* line 19, ../scss/main.scss */
+  .sidebar-left {
+    display: block;
+    width: 11.39241%;
+    float: left;
+    margin-right: 1.26582%;
+  }
+}
+
+/* line 29, ../scss/main.scss */
+.main {
+  height: 80vh;
+}
+@media (min-width: 720px) {
+  /* line 29, ../scss/main.scss */
+  .main {
+    width: 62.02532%;
+    float: left;
+    margin-right: 1.26582%;
+  }
+}
+/* line 34, ../scss/main.scss */
+.main .content {
+  overflow: auto;
+  height: 60vh;
+  padding: 3.79747%;
+  background-color: rgba(100, 0, 0, 0.6);
+  text-shadow: #aaa 0 1px 0;
+  -moz-column-count: 3;
+  -webkit-column-count: 3;
+  column-count: 3;
+}
+/* line 41, ../scss/main.scss */
+.main .content p {
+  margin-top: 0;
+}
+/* line 45, ../scss/main.scss */
+.main .teaser {
+  height: 16vh;
+  background-color: rgba(100, 30, 100, 0.6);
+  padding: 2.04082%;
+  margin: 2vh 0;
+  width: 100%;
+  float: left;
+  margin-left: 0;
+  margin-right: 0;
+  -moz-box-shadow: #551955 0 0 5px;
+  -webkit-box-shadow: #551955 0 0 5px;
+  box-shadow: #551955 0 0 5px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+}
+@media (min-width: 720px) {
+  /* line 45, ../scss/main.scss */
+  .main .teaser {
+    width: 18.36735%;
+    float: left;
+    margin-right: 2.04082%;
+  }
+  /* line 55, ../scss/main.scss */
+  .main .teaser:nth-child(5n) {
+    float: right;
+    margin-right: 0;
+  }
+}
+
+/* line 62, ../scss/main.scss */
+.sidebar-right {
+  height: 80vh;
+  background-color: rgba(100, 100, 30, 0.6);
+  clear: both;
+}
+@media (min-width: 720px) {
+  /* line 62, ../scss/main.scss */
+  .sidebar-right {
+    clear: none;
+    width: 24.05063%;
+    float: right;
+    margin-right: 0;
+  }
+}
+
+/* line 72, ../scss/main.scss */
+footer {
+  height: 20vh;
+  background-color: rgba(0, 30, 100, 0.6);
   clear: both;
 }
