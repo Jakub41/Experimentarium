@@ -4,12 +4,51 @@
 @import "partials/mixin";
 @import "partials/font";
 @import "partials/media-queries";
-// === Includes ===
+@import "partials/brand-mixim";
+@import "partials/grid";
+@import "partials/custom-loops";
+// === Includes / General Use ===
 @include fancy-links;
 @include apply-to-ie-6 {
     body {
         font-size: 125%;
     }
+}
+
+// === LOOPS ===
+@for $i from 1 through 6 {
+    .col-#{i} {
+        width: $i * 2em;
+    }
+}
+
+$speakers: bob,
+jake,
+sandra,
+carolina;
+@each $speaker in $speakers {
+    .#{speaker}-profile {
+        background-image: url('/img/#{$speaker}.png');
+    }
+}
+
+$font-sizes: (tiny: 8px,
+small: 11px,
+medium: 13px,
+large: 18px);
+@each $name,
+$size in $font-sizes {
+    .#{$name} {
+        font-size: $size;
+    }
+}
+
+$j: 2;
+@while $j <=8 {
+    .picture-#{$j} {
+        width: $j * 10%;
+    }
+    $j: $j - 2;
 }
 
 // === Style From Here ===
@@ -50,6 +89,9 @@ p {
 
 a {
     color: $linkColor;
+    @include jakes {
+        color: #8779ff;
+    }
     &:hover {
         color: darken($linkColor, 15%);
     }
@@ -82,7 +124,8 @@ a {
 
 #header {
     @include box($radius: 12px, $border: 1px solid $headerColor);
-    @include box-shadow(2px 0px 4px #999, 1px 1px 6px $secondaryColor);
+    @include box-shadow(2px 0px 4px #999,
+    1px 1px 6px $secondaryColor);
     height: $headerHeight;
     background-color: $themeColor;
     #main-menu {
@@ -133,4 +176,7 @@ a {
     clear: both;
     height: $footerHeight;
     background-color: $ternaryColor;
+    @include rovers {
+        border-top: 5px solid darken($ternaryColor, 15%);
+    }
 }

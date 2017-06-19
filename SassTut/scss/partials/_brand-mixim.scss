@@ -1,0 +1,17 @@
+@mixin jakes {
+    @if $brand==jakes {
+        @content;
+    }
+}
+
+@mixin rovers {
+    @if $brand==rovers {
+        @content;
+    }
+}
+
+@mixin pizza {
+    @if $brand==pizza {
+        @content;
+    }
+}
