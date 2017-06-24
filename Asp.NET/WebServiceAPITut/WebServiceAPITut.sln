@@ -1,6 +1,7 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.13
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebServiceAPITut", "WebServiceAPITut\WebServiceAPITut.csproj", "{14E1049C-3A95-43FA-8979-D0071BA08E2D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebServiceAPITut.Tests", "WebServiceAPITut.Tests\WebServiceAPITut.Tests.csproj", "{4FFB7BF8-EE7F-4443-86A9-7E0A0070DCB3}"
@@ -19,5 +20,8 @@ Global
 		{4FFB7BF8-EE7F-4443-86A9-7E0A0070DCB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FFB7BF8-EE7F-4443-86A9-7E0A0070DCB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FFB7BF8-EE7F-4443-86A9-7E0A0070DCB3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
