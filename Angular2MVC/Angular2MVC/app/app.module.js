@@ -20,6 +20,8 @@ var user_service_1 = require("./Service/user.service");
 var user_pipe_1 = require("./Filter/user.pipe");
 var search_component_1 = require("./Shared/search.component");
 var errorhandler_1 = require("./Shared/errorhandler");
+var animations_1 = require("@angular/platform-browser/animations");
+var material_1 = require("@angular/material");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -27,7 +29,7 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule, forms_1.ReactiveFormsModule, http_1.HttpModule, app_routing_1.routing, ng2_bs3_modal_1.Ng2Bs3ModalModule, forms_1.FormsModule],
+        imports: [platform_browser_1.BrowserModule, forms_1.ReactiveFormsModule, http_1.HttpModule, app_routing_1.routing, ng2_bs3_modal_1.Ng2Bs3ModalModule, forms_1.FormsModule, animations_1.BrowserAnimationsModule, material_1.MaterialModule, material_1.MdNativeDateModule],
         declarations: [app_component_1.AppComponent, user_component_1.UserComponent, home_component_1.HomeComponent, user_pipe_1.UserFilterPipe, search_component_1.SearchComponent],
         providers: [{ provide: core_1.ErrorHandler, useClass: errorhandler_1.default }, { provide: common_1.APP_BASE_HREF, useValue: '/' }, user_service_1.UserService],
         bootstrap: [app_component_1.AppComponent]

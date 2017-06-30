@@ -14,7 +14,7 @@ var HomeComponent = (function () {
 }());
 HomeComponent = __decorate([
     core_1.Component({
-        template: "<img src=\"../../images/users.jpg\" style=\"text-align:center\"/>"
+        template: " <md-card class=\"example-card\">\n                 <md-card-header>\n                    <div md-card-avatar class=\"example-header-image\"></div>\n                    <md-card-title>Users</md-card-title>\n                    <md-card-subtitle>Sample Image</md-card-subtitle>\n                 </md-card-header>\n                 <img md-card-image src=\"../../images/users.jpg\">\n                 <md-card-content>\n                 <p>\n                  The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.\n                  A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally\n                  bred for hunting.\n                 </p>\n                 </md-card-content>\n                 <md-card-actions>\n                 <button md-button>LIKE</button>\n                 <button md-button>SHARE</button>\n                 </md-card-actions>\n                </md-card>\n"
     })
 ], HomeComponent);
 exports.HomeComponent = HomeComponent;
