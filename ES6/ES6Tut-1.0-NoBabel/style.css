@@ -1,3 +1,133 @@
-h1 {
+/** HEADER **/
+
+html,
+body {}
+
+header {
+    background-color: #7a0505;
+    color: #e8e4cf;
+}
+
+.top-level-hgroup {
+    background-color: #0c3f0c;
+    float: left;
+    width: 100%;
+}
+
+h1#heading {
     text-align: center;
+    float: none;
+    font-size: 2em;
+    font-weight: 700;
+    padding: .5em 0 .5em .5em;
+}
+
+header p {
+    text-align: center;
+    padding: 8.5em .5em .5em .5em;
+}
+
+.stripes {
+    width: 100%;
+    height: .375em;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    background-color: #fc7e55;
+}
+
+.stripe-span {
+    float: left;
+    height: .375em;
+}
+
+.stripe1 {
+    background-color: #0c3f0c;
+    width: 5.5%;
+}
+
+.stripe2 {
+    background-color: #67d9a6;
+    width: 6.5%;
+}
+
+.stripe3 {
+    background-color: #cde8c5;
+    width: 4.5%;
+}
+
+.stripe4 {
+    background-color: #a42c22;
+    width: 4.5%;
+}
+
+.stripe5 {
+    background-color: #fcba45;
+    width: 5.5%;
+}
+
+.stripe6 {
+    background-color: #cbceb5;
+    width: 6.5%;
+}
+
+.stripe7 {
+    background-color: #9ca441;
+    width: 5.5%;
+}
+
+.stripe8 {
+    background-color: #986d6d;
+    width: 4.5%;
+}
+
+.stripe9 {
+    background-color: #fc7e55;
+    width: 6.5%;
+}
+
+.stripe10 {
+    background-color: #0c3f0c;
+    width: 4.5%;
+}
+
+.stripe11 {
+    background-color: #67d9a6;
+    width: 5.5%;
+}
+
+.stripe12 {
+    background-color: #cde8c5;
+    width: 7%;
+}
+
+.stripe13 {
+    background-color: #d65c64;
+    width: 5%;
+}
+
+.stripe14 {
+    background-color: #fcba45;
+    width: 6.5%;
+}
+
+.stripe15 {
+    background-color: #a42c22;
+    width: 5.5%;
+}
+
+.stripe16 {
+    background-color: #9ca441;
+    width: 4.5%;
+}
+
+.stripe17 {
+    background-color: #986d6d;
+    width: 6.5%;
+}
+
+.stripe18 {
+    background-color: #c7ffdd;
+    width: 5.5%;
 }
