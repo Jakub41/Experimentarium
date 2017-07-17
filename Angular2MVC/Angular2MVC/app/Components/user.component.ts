@@ -1,194 +1,83 @@
 ﻿import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserService } from '../Service/user.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ModalComponent } from 'ng2-bs3-modal/ng2-bs3-modal';
+import { IUser } from '../Models/user';
 import { DBOperation } from '../Shared/enum';
 import { Observable } from 'rxjs/Rx';
 import { Global } from '../Shared/global';
-import User = require("../Models/user");
-import IUser = User.IUser;
-
+import { ManageUser } from './manageuser.component';
+import { MdDialog, MdDialogRef } from '@angular/material';
 @Component({
     templateUrl: 'app/Components/user.component.html'
 })
-
 export class UserComponent implements OnInit {
-
-    @ViewChild('modal') modal: ModalComponent;
     users: IUser[];
     user: IUser;
     msg: string;
-    indLoading: boolean = false;
-    userFrm: FormGroup;
     dbops: DBOperation;
     modalTitle: string;
     modalBtnTitle: string;
     listFilter: string;
     searchTitle: string = "Search: ";
-
-    constructor(private fb: FormBuilder, private _userService: UserService) { }
-
-    ngOnInit(): void {
-        this.userFrm = this.fb.group({
-            Id: [''],
-            FirstName: ['', Validators.required],
-            LastName: [''],
-            Gender: ['', Validators.required]
-        });
-        this.userFrm.valueChanges.subscribe(data => this.onValueChanged(data));
-        this.onValueChanged();
-
-        this.LoadUsers();
-    }
-
-    onValueChanged(data?: any) {
-
-        if (!this.userFrm) { return; }
-        const form = this.userFrm;
-
-        for (const field in this.formErrors) {
-            // clear previous error message (if any)
-            this.formErrors[field] = '';
-            const control = form.get(field);
-
-            if (control && control.dirty && !control.valid) {
-                const messages = this.validationMessages[field];
-                for (const key in control.errors) {
-                    this.formErrors[field] += messages[key] + ' ';
+    selectedOption: string;
+    constructor(private _userService: UserService, private dialog: MdDialog) { }
+    openDialog() {
+        let dialogRef = this.dialog.open(ManageUser);
+        dialogRef.componentInstance.dbops = this.dbops;
+        dialogRef.componentInstance.modalTitle = this.modalTitle;
+        dialogRef.componentInstance.modalBtnTitle = this.modalBtnTitle;
+        dialogRef.componentInstance.user = this.user;
+        dialogRef.afterClosed().subscribe(result => {
+            if (result == "success") {
+                this.LoadUsers();
+                switch (this.dbops) {
+                case DBOperation.create:
+                    this.msg = "Data successfully added.";
+                    break;
+                case DBOperation.update:
+                    this.msg = "Data successfully updated.";
+                    break;
+                case DBOperation.delete:
+                    this.msg = "Data successfully deleted.";
+                    break;
                 }
             }
-        }
+            else if (result == "error")
+                this.msg = "There is some issue in saving records, please contact to system administrator!"
+            else
+                this.msg = result;
+        });
     }
-
-    formErrors = {
-        'FirstName': '',
-        'LastName': '',
-        'Gender': ''
-    };
-
-    validationMessages = {
-        'FirstName': {
-            'maxlength': 'First Name cannot be more than 20 characters long.',
-            'required': 'First Name is required.'
-        },
-        'LastName': {
-            'maxlength': 'Last Name cannot be more than 100 characters long.',
-            'required': 'Last Name is required.'
-        },
-        'Gender': {
-            'maxlength': 'Gender cannot be more than 2000 characters long.'
-        }
-    };
-
+    ngOnInit(): void {
+        this.LoadUsers();
+    }
     LoadUsers(): void {
-        this.indLoading = true;
         this._userService.get(Global.BASE_USER_ENDPOINT)
-            .subscribe(users => { this.users = users; this.indLoading = false; }
+            .subscribe(users => { this.users = users; }
                 //,error => this.msg = <any>error
             );
     }
-
     addUser() {
         this.dbops = DBOperation.create;
-        this.SetControlsState(true);
         this.modalTitle = "Add New User";
         this.modalBtnTitle = "Add";
-        this.userFrm.reset();
-        this.modal.open();
+        this.openDialog();
     }
-
     editUser(id: number) {
         this.dbops = DBOperation.update;
-        this.SetControlsState(true);
         this.modalTitle = "Edit User";
         this.modalBtnTitle = "Update";
         this.user = this.users.filter(x => x.Id == id)[0];
-        this.userFrm.setValue(this.user);
-        this.modal.open();
+        this.openDialog();
     }
-
     deleteUser(id: number) {
         this.dbops = DBOperation.delete;
-        this.SetControlsState(false);
         this.modalTitle = "Confirm to Delete?";
         this.modalBtnTitle = "Delete";
         this.user = this.users.filter(x => x.Id == id)[0];
-        this.userFrm.setValue(this.user);
-        this.modal.open();
+        this.openDialog();
     }
-
-    onSubmit(formData: any) {
-        this.msg = "";
-
-        switch (this.dbops) {
-        case DBOperation.create:
-            this._userService.post(Global.BASE_USER_ENDPOINT, formData._value).subscribe(
-                data => {
-                    if (data == 1) //Success
-                    {
-                        this.msg = "Data successfully added.";
-                        this.LoadUsers();
-                    }
-                    else {
-                        this.msg = "There is some issue in saving records, please contact to system administrator!"
-                    }
-
-                    this.modal.dismiss();
-                },
-                error => {
-                    this.msg = error;
-                }
-            );
-            break;
-        case DBOperation.update:
-            this._userService.put(Global.BASE_USER_ENDPOINT, formData._value.Id, formData._value).subscribe(
-                data => {
-                    if (data == 1) //Success
-                    {
-                        this.msg = "Data successfully updated.";
-                        this.LoadUsers();
-                    }
-                    else {
-                        this.msg = "There is some issue in saving records, please contact to system administrator!"
-                    }
-
-                    this.modal.dismiss();
-                },
-                error => {
-                    this.msg = error;
-                }
-            );
-            break;
-        case DBOperation.delete:
-            this._userService.delete(Global.BASE_USER_ENDPOINT, formData._value.Id).subscribe(
-                data => {
-                    if (data == 1) //Success
-                    {
-                        this.msg = "Data successfully deleted.";
-                        this.LoadUsers();
-                    }
-                    else {
-                        this.msg = "There is some issue in saving records, please contact to system administrator!"
-                    }
-
-                    this.modal.dismiss();
-                },
-                error => {
-                    this.msg = error;
-                }
-            );
-            break;
-
-        }
-    }
-
-    SetControlsState(isEnable: boolean) {
-        isEnable ? this.userFrm.enable() : this.userFrm.disable();
-    }
-
     criteriaChange(value: string): void {
         if (value != '[object Event]')
             this.listFilter = value;
-
     }
 }
