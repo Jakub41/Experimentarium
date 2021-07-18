@@ -855,14 +855,15 @@ grunt-contrib-qunit@^1.3.0:
   dependencies:
     grunt-lib-phantomjs "^1.0.0"
 
-grunt-contrib-uglify@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/grunt-contrib-uglify/-/grunt-contrib-uglify-2.2.0.tgz#9e67c2469b4774daa3345840511d51fc4fb34f19"
+grunt-contrib-uglify@2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/grunt-contrib-uglify/-/grunt-contrib-uglify-2.3.0.tgz#b3d0260ebdd6cefa12ff2f8e9e1e259f7de4216f"
+  integrity sha1-s9AmDr3WzvoS/y+Onh4ln33kIW8=
   dependencies:
     chalk "^1.0.0"
     maxmin "^1.1.0"
     object.assign "^4.0.4"
-    uglify-js "~2.8.3"
+    uglify-js "~2.8.21"
     uri-path "^1.0.0"
 
 grunt-contrib-watch@^1.0.0:
@@ -1965,9 +1966,10 @@ typedarray@^0.0.6, typedarray@~0.0.5:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 
-uglify-js@~2.8.3:
-  version "2.8.16"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-2.8.16.tgz#d286190b6eefc6fd65eb0ecac6551e0b0e8839a4"
+uglify-js@~2.8.21:
+  version "2.8.29"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-2.8.29.tgz#29c5733148057bb4e1f75df35b7a9cb72e6a59dd"
+  integrity sha1-KcVzMUgFe7Th913zW3qcty5qWd0=
   dependencies:
     source-map "~0.5.1"
     yargs "~3.10.0"
