@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "@angular/animations": "^4.2.5",
-    "@angular/material": "^2.0.0-beta.7",
+    "@angular/material": "2.0.0-beta.12",
     "@types/jasmine": "2.8.18",
     "@types/node": "^8.0.6",
     "canonical-path": "0.0.2",
