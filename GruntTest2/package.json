@@ -5,6 +5,6 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
-    "grunt": "^1.0.1"
+    "grunt": "1.5.3"
   }
 }
