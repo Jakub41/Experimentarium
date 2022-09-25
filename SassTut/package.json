@@ -23,6 +23,6 @@
     "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.8",
     "gulp-wrapper": "^1.0.0",
-    "jshint": "^2.9.4"
+    "jshint": "2.13.5"
   }
 }
