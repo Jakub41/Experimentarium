@@ -2160,10 +2160,10 @@ grunt-contrib-jshint@0.12.0:
     hooker "^0.2.3"
     jshint "~2.9.1"
 
-grunt-contrib-uglify@0.11.1:
+grunt-contrib-uglify@^0.11.0:
   version "0.11.1"
   resolved "https://registry.yarnpkg.com/grunt-contrib-uglify/-/grunt-contrib-uglify-0.11.1.tgz#5e22a2f676cd11d871fc2a0f08aa9b2973045325"
-  integrity sha1-XiKi9nbNEdhx/CoPCKqbKXMEUyU=
+  integrity sha512-zyXxK89PCfXqN8l/4nzT83qedLGj9NoEqnEwTDC/KFJV/h0+P6jcrctOq8M6dsf5LisucGNN2Z5r8GoL1fDkMA==
   dependencies:
     chalk "^1.0.0"
     lodash "^4.0.1"
@@ -4182,7 +4182,7 @@ pretty-bytes@^1.0.0, pretty-bytes@^1.0.1:
   dependencies:
     get-stdin "^4.0.1"
     meow "^3.1.0"
-    
+
 pretty-bytes@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/pretty-bytes/-/pretty-bytes-2.0.1.tgz#155ec4d0036f41391e7045d6dbe4963d525d264f"
@@ -4192,7 +4192,7 @@ pretty-bytes@^2.0.1:
     meow "^3.1.0"
     number-is-nan "^1.0.0"
 
-pretty-bytes@^3.0.1:
+pretty-bytes@^3.0.0, pretty-bytes@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/pretty-bytes/-/pretty-bytes-3.0.1.tgz#27d0008d778063a0b4811bb35c79f1bd5d5fbccf"
   dependencies:
@@ -4848,6 +4848,13 @@ source-map@^0.5.3, source-map@~0.5.1:
   version "0.5.6"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.6.tgz#75ce38f52bf0733c5a7f0c118d81334a2bb5f412"
 
+source-map@~0.1.43, source-map@~0.1.7:
+  version "0.1.43"
+  resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.1.43.tgz#c24bc146ca517c1471f5dacbe2571b2b7f9e3346"
+  integrity sha512-VtCvB9SIQhk3aF6h+N85EaqIaBFIAfZ9Cu+NJHHVvc8BbEcnvDcFw6sqQ2dQrT6SlOrZq3tIvyD9+EGq/lJryQ==
+  dependencies:
+    amdefine ">=0.0.4"
+
 sparkles@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/sparkles/-/sparkles-1.0.0.tgz#1acbbfb592436d10bbe8f785b7cc6f82815012c3"
@@ -5320,7 +5327,7 @@ uglify-js@2.4.x:
     uglify-to-browserify "~1.0.0"
     yargs "~3.5.4"
 
-uglify-js@2.6.x:
+uglify-js@2.6.x, uglify-js@~2.6.0:
   version "2.6.4"
   resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-2.6.4.tgz#65ea2fb3059c9394692f15fed87c2b36c16b9adf"
   integrity sha1-ZeovswWck5RpLxX+2HwrNsFrmt8=
@@ -5329,15 +5336,6 @@ uglify-js@2.6.x:
     source-map "~0.5.1"
     uglify-to-browserify "~1.0.0"
     yargs "~3.10.0"
-
-uglify-js@^2.4.0:
-  version "2.8.16"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-2.8.16.tgz#d286190b6eefc6fd65eb0ecac6551e0b0e8839a4"
-  dependencies:
-    source-map "~0.5.1"
-    yargs "~3.10.0"
-  optionalDependencies:
-    uglify-to-browserify "~1.0.0"
 
 uglify-js@~2.3:
   version "2.3.6"
@@ -5346,16 +5344,6 @@ uglify-js@~2.3:
     async "~0.2.6"
     optimist "~0.3.5"
     source-map "~0.1.7"
-
-uglify-js@~2.6.0:
-  version "2.6.4"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-2.6.4.tgz#65ea2fb3059c9394692f15fed87c2b36c16b9adf"
-  integrity sha1-ZeovswWck5RpLxX+2HwrNsFrmt8=
-  dependencies:
-    async "~0.2.6"
-    source-map "~0.5.1"
-    uglify-to-browserify "~1.0.0"
-    yargs "~3.10.0"
 
 uglify-to-browserify@~1.0.0:
   version "1.0.2"
